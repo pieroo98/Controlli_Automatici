@@ -1,27 +1,3 @@
-%%exe con SVD
-
-x= linspace(1,2,6);
-A=vander(x);
-B=zeros(6,6);
-[U,S,V] = svd(A);
-for i=1:4
-    B= B+ S(i,i)*U(:,i)*V(:,i)';
-end
-norm(B,inf)
-
-
-%%exe con taylor
-
-x=10^-8;
-y=sqrt((exp(x)-1)./x);
-f=1;
-for i=1:100
-    f=f+x^(i)/factorial(i+1);
-end
-f=sqrt(f);
-err=abs(f-y)/abs(y);
-
-
 %%esercizio su parabola di regressione
 
 f = @(x) x*sin(x);
@@ -78,6 +54,18 @@ plot(x,y,'r*',z,p,'linewidth',2)
 axis([-0.5 19 min(p) max(p)])
 pr = polyval(c,2);   % calcola il valore delle y in un generico punto (in questo caso il 2)
 
+
+%A = [x' ones(10,1)];
+%[Q,R] = qr(A);
+%c=Q'*b;
+%c1=c(1:2);
+%c_Star = R(1:2,1:2)\c1;
+%z=[-.2,3];
+%p = polyval(c_Star,z); 
+%plot(x,b,'r*',z,p,'linewidth',3)
+%axis([-0.2 3 min(p) max(p)])
+%pr = polyval(c_Star,3)
+%c1
 
 %%ex 4
 
